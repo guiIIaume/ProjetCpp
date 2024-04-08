@@ -13,7 +13,7 @@ Etape 1 :
 
 -detecter des droites:
 -faire la transformation de Hough à des droites:
--dessiner une droite: (en cours, Guillaume)
+-dessiner une droite/ anti-aliasing: (en cours, Guillaume)
 -supprimer deux droites proches (il y a une fonction pour supprimer une droite qui peut être utile sur Github):
 
 Finalité:
