@@ -9,7 +9,7 @@ typedef tuple<int, int, int> Triplet;
 typedef vector<vector<Triplet>> Matrice;
 typedef vector<pair<int, int>> Listepts;
 
-void supprimerdroite(Matrice& matrice, Listepts& points) {
+void Supprimerdroite(Matrice& matrice, Listepts& points) {
   for (auto& point : points) {
     int x = point.first;
     int y = point.second;
@@ -17,7 +17,7 @@ void supprimerdroite(Matrice& matrice, Listepts& points) {
     if (x < 0 || x >= matrice.size() || y < 0 || y >= matrice[0].size()) {
         cout << "Point hors de la matrice : (" << x << ", " << y << ")" << endl;
     } else {
-        matrice[x][y] = make_tuple(0, 0, 0);
+        matrice[x][y] = make_tuple(255, 255, 255);
         ;
     }
   }
@@ -38,11 +38,4 @@ int main() {
     
     return 0;
 }
-
-
-
-
-
-
-
 
