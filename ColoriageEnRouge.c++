@@ -22,12 +22,13 @@ void modifierEnRouge(Matrice& matrice, Listepts& points) {
     }
 }
 
+
 int main() {
     Matrice matrice = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}}};
     Listepts points = {{0, 0}, {1, 1}};
     
     modifierEnRouge(matrice, points);
-    
+    Listepts pt= {{0,1},{1,0}};
     for (const auto& row : matrice) {
         for (const auto& triplet : row) {
             cout << "(" << get<0>(triplet) << ", " << get<1>(triplet) << ", " << get<2>(triplet) << ") ";
