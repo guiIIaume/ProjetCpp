@@ -78,10 +78,44 @@ void print_map(std::string_view comment, const std::map<pair<float,float>, int>&
         std::cout << '[' << key.first <<"  ;  "<< key.second << "] = " << value << "; ";
 }
 
+Matrice CouplesAleatoires(Matrice matrice, nombredecouples = 10000, seuil = 1000){
+    std::map<std::pair<float, float>, int> nblignes; // Pour stocker le nombre d'occurrences de chaque couple (m,p)
+        
+    //creation des 1000 droites
+    for(int i = 0; i < nombredecouples; i++) {
+      Point p1;
+      unsigned int k = rand() % NonBlancs(matrice).size();
+      p1.first = NonBlancs(matrice)[k].second;
+      p1.second = NonBlancs(matrice)[k].first;
+      Point p2;
+      unsigned int k2 = rand() % NonBlancs(matrice).size();
+      p2.first = NonBlancs(matrice)[k2].second;
+      p2.second = NonBlancs(matrice)[k2].first;
+      if (p2.first != p1.first){
+        float m = (float) (p2.second - p1.second) / (p2.first - p1.first);
+        float p = p1.second - m * p1.first;
+        nblignes[{m, p}]=nblignes[{m, p}]+1;
+      }
+    }
+  
+    //affichage ssi nbligne(droite) >= 5
+    for(auto& pair : nblignes) {
+        if(pair.second >= seuil) {
+            afficherdroite2(matrice,pair.first.first,pair.first.second);
+            std::cout << "Droite : y = " << pair.first.first << "x + " << pair.first.second << std::endl;
+      }
+    }
+    print_map("map=   ",nblignes);
+    cout<<endl;
+    return matrice;
+}
+
+
+
+
 int main() {
     Matrice matrice = {{{0,255,0}, {255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}}, {{255,0,255}, {255,0,255}, {255,0,255}, {0,255,0}, {255,0,255}},{{255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}},{{255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}},{{255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}, {255,255,255}}};
-    int nombredecouples = 10000; 
-    int seuil = 1000; 
+    
     
     std::map<std::pair<float, float>, int> nblignes; // Pour stocker le nombre d'occurrences de chaque couple (m,p)
         
