@@ -9,6 +9,7 @@ typedef tuple<int, int, int> Triplet;
 typedef vector<vector<Triplet>> Matrice;
 typedef vector<pair<int, int>> Listepts;
 
+//Globalement le même programme que "afficherdroite" ou "modifierEnRouge" , mais plus général: on peut choisir la couleur des pixels.
 void ModifierValeurPoints(Matrice& matrice, Listepts& points, int a, int b, int c) {  //a,b,c sont les coefs qu'on veut mettre qui correspondent à rouge vert bleu.
   for (auto& point : points) {
     int x = point.first;
