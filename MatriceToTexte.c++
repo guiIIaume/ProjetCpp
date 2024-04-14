@@ -15,13 +15,13 @@
 #include <fstream>
 using namespace std;
 
+//transforme une matrice en un fichier texte ou ppm avec les informations dedant
 void ecriveur(std::vector<std::vector<int>> a){
   int d1 = a.size();
   int d2 = a[0].size();
   string const nomFichier("PpmEcrit.txt");
     std::ofstream monFlux(nomFichier.c_str());
     if(monFlux){
-      
         monFlux << "P3" << std::endl;
         monFlux << "#resolution" << std::endl;
         monFlux << d1 << "  " << d2 << std::endl;
