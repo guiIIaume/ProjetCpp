@@ -24,6 +24,8 @@ void afficherdroite(Matrice& matrice, Listepts& points) {
     }
 }
 
+
+//tentative non concluante d'appliquer l'anti aliasing à l'image
 void antipoint(Matrice& matrice){
   for (auto& point : matrice) {
     int x = point.first;
@@ -36,6 +38,7 @@ void antipoint(Matrice& matrice){
         matrice[i][j] = make_tuple(255-floor(percent*255),255-floor(percent*255),255-floor(percent*255));
   }}}}
 
+//programme en python pour l'anti aliasing
 //def plot_antialiased_point(x: float, y: float):
 //    """Plot a single, white-on-black anti-aliased point."""
 //    for rounded_x in floor(x) to ceil(x):
