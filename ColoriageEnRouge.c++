@@ -8,13 +8,14 @@ typedef tuple<int, int, int> Triplet;
 typedef vector<vector<Triplet>> Matrice;
 typedef vector<pair<int, int>> Listepts;
 
+//modifie en rouge une liste de pixels (de coordonnées stockées dans "points") appartenant à l'image "matrice"; à part la couleur, c'est le même algorithme que "AfficherDroite"
 void modifierEnRouge(Matrice& matrice, Listepts& points) {
     for (auto& point : points) {
         int x = point.first;
         int y = point.second;
         
-        if (x < 0 || x >= matrice.size() || y < 0 || y >= matrice[0].size()) {
-            cout << "Point hors de la matrice : (" << x << ", " << y << ")" << endl;
+        if (x < 0 || x >= matrice.size() || y < 0 || y >= matrice[0].size()) {   
+            cout << "Point hors de la matrice : (" << x << ", " << y << ")" << endl;  
         } else {
             matrice[x][y] = make_tuple(255, 0, 0);
             ;
