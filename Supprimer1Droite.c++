@@ -9,6 +9,8 @@ typedef tuple<int, int, int> Triplet;
 typedef vector<vector<Triplet>> Matrice;
 typedef vector<pair<int, int>> Listepts;
 
+//on modifie la couleur des pixels dont les coordonnées sont listées dans "points" en blanc, ce qui les fait disparaitre. 
+//cette fonction était destinée à être un bout d'une fonction plus grosse pour supprimer une droite trop proche d'une autre.
 void Supprimerdroite(Matrice& matrice, Listepts& points) {
   for (auto& point : points) {
     int x = point.first;
